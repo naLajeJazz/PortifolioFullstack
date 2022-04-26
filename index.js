@@ -32,6 +32,18 @@ res.render("home/index",{
 });
 
 
+//rota arte
+app.get("/arte",function(req,res) {
+
+        let mostraTxt=true
+res.render("arte/index",{
+
+        texto:'Isso é uma variavel string',
+        mostra:mostraTxt
+})  
+});
+
+
 //rota contato
 app.get("/contato",function(req,res) {
 
