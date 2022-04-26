@@ -1,9 +1,22 @@
 const express = require('express');  
 const app = express(); 
 
+
 app.set('view engine','ejs');
 
 //app.set('views','views');
+
+
+//rota home
+app.get("/",function(req,res) {
+
+        let mostraTxt=true
+res.render("home/index",{
+
+        texto:'Isso é uma variavel string',
+        mostra:mostraTxt
+})  
+});
 
 
 //rota home
