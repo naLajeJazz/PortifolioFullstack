@@ -11,6 +11,10 @@
   "dependencies": {
     "bootstrap-icons": "^1.8.1",
     "ejs": "^3.1.7",
-    "express": "^4.17.3"
+    "express": "^4.17.3",
+    "procfile": "^0.1.1"
+  },
+  "engine": {
+    "node": "v12.22.12"
   }
 }

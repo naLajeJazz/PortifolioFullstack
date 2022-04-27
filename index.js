@@ -75,10 +75,19 @@ res.render("sobre/index",{
        
 })  
 });
+//rota contatosubmit
+app.get("/contatosubmit",function(req,res) {
+
+        
+res.render("contatosubmit/index",{
+
+       
+})  
+});
 
 
 
-app.listen(1321,function(erro){
+app.listen(process.env.PORT || 1321,function(erro){
 
 erro ? 
 console.log("opa aconteceu um erro!") :
