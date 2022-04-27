@@ -1,3 +1,6 @@
+.bck{
+        background-color: black;
+}
 .borda{
         border-width: 2px;
         border-color: red;
@@ -21,4 +24,8 @@ font-family: 'Water Brush', cursive;*/
 }
 .menu_bar{
         background-color: #F2F2F2;
+}
+a{
+        text-decoration: none;
+       
 }
