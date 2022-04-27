@@ -43,6 +43,17 @@ res.render("arte/index",{
 })  
 });
 
+//rota devportifolio
+app.get("/dev",function(req,res) {
+
+        let mostraTxt=true
+res.render("dev/index",{
+
+        texto:'Isso é uma variavel string',
+        mostra:mostraTxt
+})  
+});
+
 
 //rota contato
 app.get("/contato",function(req,res) {
