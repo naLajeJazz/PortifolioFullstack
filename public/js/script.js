@@ -1,13 +1,6 @@
 
 
-  setTimeout(disparaBtnAtencao, 1500)
-
-function disparaBtnAtencao() {
-                  
-     document.getElementById("btnAtencao").className=
-     "mt-4 btn btn-secondary animate__animated animate__bounce animate__slower "
-                                            
-}
+  
 
 
 
@@ -21,9 +14,22 @@ document.getElementById('menuDev').className=' border-bottom border-4 shadow-sm 
 document.getElementById('menuArte').className=' border-bottom border-4 shadow-sm rounded nav-link text-dark fs-5 active'
 }else if(url_atual == '/sobre'){
 document.getElementById('menuSobre').className=' border-bottom border-4 shadow-sm rounded nav-link text-dark fs-5 active'
-}else if(url_atual == '/contato'){
+}
+
+else if(url_atual == '/contato'){
+//
 document.getElementById('menuContato').className=' border-bottom border-4 shadow-sm rounded nav-link text-dark fs-5 active'
-}else if(url_atual == '/admin'){
+//
+    setTimeout(disparaBtnAtencao, 1000)
+    function disparaBtnAtencao() {
+                      
+        document.getElementById("btnAtencao").className=
+        "mt-4 shadow border-secondary btn btn-info animate__animated animate__bounce animate__slower "
+                                                
+    }
+}
+
+else if(url_atual == '/admin'){
 document.getElementById('menuAdmin').className=' border-bottom border-4 shadow-sm rounded nav-link text-dark fs-5 active'
 }
 
