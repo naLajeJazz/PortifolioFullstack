@@ -84,6 +84,26 @@ res.render("contatosubmit/index",{
        
 })  
 });
+//rota contatosubmit
+app.get("/admin",function(req,res) {
+
+        let adminMode=true;
+        let lista=[
+                {nome:"Rod",email:"lala@lala"},
+                {nome:"Naima",email:"lala@lala"},
+                {nome:"Nuita",email:"lala@lala"},
+                {nome:"Rod",email:"lala@lala"},
+                {nome:"Naima",email:"lala@lala"},
+                {nome:"Nuita",email:"lala@lala"},
+                {nome:"Tab",email:"lala@lala"}
+                
+        ]
+res.render("admin/index",{
+
+       mode:adminMode,
+       lista:lista
+})  
+});
 
 
 

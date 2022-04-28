@@ -1,9 +1,12 @@
+
+
+
 .bck{
         background-color: black;
 }
 .borda{
-        border-width: 2px;
-        border-color: red;
+        border-width: 1px;
+        border-color: black;
         border-style: solid;
 }
 .fonte{
@@ -12,16 +15,7 @@
 font-family: 'Tapestry', cursive;
 font-family: 'Water Brush', cursive;*/
 }
-.bg{
-        background-image: url("../vila.png");
-         /* Full height */
-  height: 100%;
 
-  /* Center and scale the image nicely */
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
 .menu_bar{
         background-color: #F2F2F2;
 }

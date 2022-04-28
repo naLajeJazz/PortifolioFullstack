@@ -1,0 +1,64 @@
+<%- include("../common/header") %>
+<%- include("../common/menu") %>
+        
+
+        
+        <main class=" img-thumbnail  container-fluid  " >
+
+
+
+
+
+
+
+                  <h2 class="text-center text-danger fonte">[modo restrito]</h2>
+
+                  <% if (mode == true){ %>
+
+
+
+
+
+
+                  <div class="card">
+                        <div class=" card-body card border-secondary shadow-lg">
+                        
+                                
+                        <h3 class="fonte">Usando o metodo Foreach</h3>
+
+                                <div class="my-5  container">
+                                        <div class=" row row-cols-2">
+                
+                <% lista.forEach(function(usuario){ %>
+
+                        
+                       
+                        <div class="card col">nome<h2><%=usuario.nome%></h2>   </div>    
+                        <div class="card col">email<h2><%=usuario.email%></h2>    </div>    
+
+              <%  })  %><h2></h2>
+                
+                 
+                                         
+                
+                                        </div>
+                                      </div>
+
+
+                        </div>
+                      </div>
+
+
+
+
+                  
+
+
+
+
+
+<% } %>
+                 
+        </main>
+
+     <%- include("../common/footer")%> 
