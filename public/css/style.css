@@ -6,7 +6,7 @@
 }
 .borda{
         border-width: 1px;
-        border-color: black;
+        border-color: rgb(164, 228, 193);
         border-style: solid;
 }
 .fonte{
@@ -17,7 +17,7 @@ font-family: 'Water Brush', cursive;*/
 }
 
 .menu_bar{
-        background-color: #F2F2F2;
+        background-color: white;
 }
 a{
         text-decoration: none;
