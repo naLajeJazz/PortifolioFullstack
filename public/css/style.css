@@ -23,3 +23,10 @@ a{
         text-decoration: none;
        
 }
+.animate__animated.animate__bounce {
+        --animate-duration: 0.3s;
+      }
+.animate__animated.animate__flash{
+        --animate-duration: 3s;
+        
+}
