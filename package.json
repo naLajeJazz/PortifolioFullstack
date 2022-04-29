@@ -10,6 +10,7 @@
   "license": "MIT",
   "dependencies": {
     "animate.css": "^4.1.1",
+    "body-parser": "^1.20.0",
     "bootstrap-icons": "^1.8.1",
     "ejs": "^3.1.7",
     "express": "^4.17.3",

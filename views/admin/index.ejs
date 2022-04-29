@@ -19,11 +19,22 @@
         <div class="card  my-5 mx-auto shadow" style="width: 28em;">
 
                 <h2 class="my-3 text-center text-info fonte">LOGIN</h2>
+<form method="POST" action="/dados" >
+   
+
+                    <div class="my-3 mx-auto row" style="width: 26em;">
+                      <label for="text" class=" col-form-label">Nome</label>
+                      <div class="">
+                        <input name="nome" type="text" class="form-control border-top-0 border-start-0 border-end-0 " id="n" value="">
+                      </div>
+                    </div>
+
+
 
                         <div class="my-3 mx-auto row" style="width: 26em;">
                                 <label for="staticEmail" class=" col-form-label">Email</label>
                                 <div class="">
-                                  <input type="text" class="form-control border-top-0 border-start-0 border-end-0 " id="staticEmail" value="">
+                                  <input name="email" type="email" class="form-control border-top-0 border-start-0 border-end-0 " id="mail" value="">
                                 </div>
                               </div>
 
@@ -31,22 +42,23 @@
                               <div class="my-3 mx-auto row" style="width: 26em;">
                                 <label for="inputPassword" class=" col-form-label">Password</label>
                                 <div class="">
-                                  <input type="password" class="form-control border-top-0 border-start-0 border-end-0" id="inputPassword">
+                                  <input name="senha" type="password" class="form-control border-top-0 border-start-0 border-end-0" id="inputPassword">
                                 </div>
                               </div>
-
+     
 
                               <div class="my-3 mx-auto d-block row" >
                                 
                                 <div class="">
-                                  <a href="#" class="px-5 btn btn-info" onclick="">enviar</a>
+                                  
+                                  <button class="px-5 btn btn-info">enviar</button>
                                 </div>
                               </div>
                  
-
+                            
         </div>
 
-
+      </form>
                  
 
 <% } else { %>
@@ -61,14 +73,17 @@
                         <h3 class="fonte text-white">Usando o metodo Foreach</h3>
 
                                 <div class="my-5  container">
-                                        <div class="  row row-cols-2">
+                                        <div class="  row row-cols-3">
                 
                 <% lista.forEach(function(usuario){ %>
 
                         
+                         
+
+                         <div class="bck border-info text-white card col">nome<h3><%=usuario.nome%></h3>   </div>    
+                         <div class="bck border-info text-white card col">email<h3><%=usuario.email%></h3>    </div>
+                         <div class="bck border-info text-white card col">senha<h3><%=usuario.senha%></h3>    </div>    
                        
-                        <div class="bck border-info text-white card col">nome<h3><%=usuario.nome%></h3>   </div>    
-                        <div class="bck border-info text-white card col">email<h3><%=usuario.email%></h3>    </div>    
 
               <%  })  %>
                 

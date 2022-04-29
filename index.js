@@ -1,9 +1,13 @@
 const express = require('express');  
-const app = express(); 
+const app = express();
+const bodyParser= require('body-parser');
 
 
 app.set('view engine','ejs');
 app.use(express.static('./public'));
+
+app.use(bodyParser.urlencoded({extended:false}));
+app.use(bodyParser.json());
 
 //app.set('views','views');
 
@@ -87,7 +91,7 @@ res.render("contatosubmit/index",{
 //rota contatosubmit
 app.get("/admin",function(req,res) {
 
-        let adminMode=false;
+        var adminMode=true;
         
         let lista=[
                 {nome:"Rod",email:"lala@lala"},
@@ -109,6 +113,40 @@ res.render("admin/index",{
 
 });
 
+//rota dados(direciona dados do formulario)
+app.post("/dados" , function(req,res){
+        var adminMode=true;
+        let meuNome="rod"
+        let meuEmail="lala@lala";
+        let minhaSenha="aaa";
+        //variaveis recebem dados do formulario
+        let nome=req.body.nome;
+        let email=req.body.email;
+        let senha=req.body.senha;
+        //coloco esses dados em uma lista de objetos
+        let dadosUsuario=[
+                {nome:nome},
+                {email:email},
+                {senha:senha}
+        ];
+        
+        //res.send(dadosUsuario);
+        
+        if (email == meuEmail && senha == minhaSenha && nome == meuNome ){
+                adminMode=false
+}
+        if (adminMode==false){
+
+                res.render("admin/index",{
+
+                        mode:adminMode,
+                        lista:dadosUsuario
+                        
+                        
+                 });
+        }
+        console.log(adminMode)
+});
 
 
 app.listen(process.env.PORT || 1321,function(erro){

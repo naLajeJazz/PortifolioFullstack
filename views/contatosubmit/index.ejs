@@ -15,19 +15,22 @@
 
               <div class="card shadow p-3 mx-auto my-5"style="width:23em">
 
-              
+              <form action="/dados" method="post">
+
+             
 
               <div class="mb-3">
                   <label for="exampleFormControlInput1" class="form-label">Email address</label>
-                  <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="e-mail">
+                  <input name="email" type="email" class="form-control" id="exampleFormControlInput1" placeholder="e-mail">
                 </div>
                 <div class="mb-3">
                   <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
-                  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                  <a href="home" id="alerta" class="my-3 btn btn-secondary mx-auto d-block "  >Enviar</a>
+                  <textarea name="mensagem" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                  
+                  <button class="my-3 btn btn-secondary mx-auto d-block">Enviar</button>
                 </div>
                
-              
+              </form>
             </div>          
         </main>
 
