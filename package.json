@@ -1,7 +1,7 @@
 {
   "name": "portifolio",
   "version": "1.0.0",
-  "description": "uma plataforma de perguntas e respostas",
+  "description": "uma plataforma portifolio",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -14,7 +14,10 @@
     "bootstrap-icons": "^1.8.1",
     "ejs": "^3.1.7",
     "express": "^4.17.3",
-    "procfile": "^0.1.1"
+    "mysql2": "^2.3.3",
+    "procfile": "^0.1.1",
+    "save": "^2.5.0",
+    "sequelize": "^6.19.0"
   },
   "engine": {
     "node": "v12.22.12"
