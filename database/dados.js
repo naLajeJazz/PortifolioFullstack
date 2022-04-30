@@ -4,18 +4,15 @@ const Sequelize = require("sequelize");
 const connection = require("./database");
 //cria a tabela de dados nome 'dados'
 const Dados = connection.define('dados',{
-                  nome:{
+                  data_email:{
                   type: Sequelize.STRING,
                   allowNull: false
                   },
-                  email:{
-                  type: Sequelize.TEXT,
-                  allowNull:false
-                  },
-                  senha:{
+                  data_msg:{
                   type: Sequelize.TEXT,
                   allowNull:false
                   }
+                  
 });
 
 Dados.sync({force:false}).then(()=>{

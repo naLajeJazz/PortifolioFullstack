@@ -62,6 +62,8 @@ document.getElementById('menuContato').className='border-warning border-bottom b
 // rota admin
 else if(url_atual == '/admin'){
 document.getElementById('menuAdmin').className='border-dark border-bottom border-4 shadow-sm rounded nav-link text-dark fs-5 active'
+}else if (url_atual == '/contatosubmit'){
+    document.getElementById('alertaMsg').addEventListener('click',()=>{alert('sua mensagem foi enviada para nosso banco de dados')})
 }
 
 

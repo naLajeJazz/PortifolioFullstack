@@ -5,4 +5,5 @@
 ### bootstratp
 ### google fonts
 ### animation css
-### mysql
+### mysql>>adcionando banco de dqados
+

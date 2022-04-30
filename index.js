@@ -25,11 +25,10 @@ app.use(bodyParser.json());
 //rota home
 app.get("/",function(req,res) {
 
-        let mostraTxt=true
+        
 res.render("home/index",{
 
-        texto:'Isso é uma variavel string',
-        mostra:mostraTxt
+        
 })  
 });
 
@@ -37,11 +36,10 @@ res.render("home/index",{
 //rota home
 app.get("/home",function(req,res) {
 
-        let mostraTxt=true
+       
 res.render("home/index",{
 
-        texto:'Isso é uma variavel string',
-        mostra:mostraTxt
+       
 })  
 });
 
@@ -49,22 +47,19 @@ res.render("home/index",{
 //rota arte
 app.get("/arte",function(req,res) {
 
-        let mostraTxt=true
+        
 res.render("arte/index",{
 
-        texto:'Isso é uma variavel string',
-        mostra:mostraTxt
 })  
 });
 
 //rota devportifolio
 app.get("/dev",function(req,res) {
 
-        let mostraTxt=true
+        
 res.render("dev/index",{
 
-        texto:'Isso é uma variavel string',
-        mostra:mostraTxt
+       
 })  
 });
 
@@ -98,80 +93,51 @@ res.render("contatosubmit/index",{
        
 })  
 });
-//rota contatosubmit
+//rota admin
 app.get("/admin",function(req,res) {
 
-        var adminMode=true;
+       
         
-        let lista=[
-                {nome:"Rod",email:"lala@lala"},
-                {nome:"Naima",email:"lala@lala"},
-                {nome:"Nuita",email:"lala@lala"},
-                {nome:"Rod",email:"lala@lala"},
-                {nome:"Naima",email:"lala@lala"},
-                {nome:"Nuita",email:"lala@lala"},
-                {nome:"Tab",email:"lala@lala"}
-                
-        ]
+        
         
 res.render("admin/index",{
 
-       mode:adminMode,
-       lista:lista,
+      
+       
        
 });
 
 });
 
-//rota dados(direciona dados do formulario)
-app.post("/dados" , function(req,res){
-        var adminMode=true;
-        let meuNome="rod"
-        let meuEmail="lala@lala";
-        let minhaSenha="aaa";
-        //variaveis recebem dados do formulario
-        let nome=req.body.nome;
-        let email=req.body.email;
-        let senha=req.body.senha;
+//rota post (direciona dados do input email e msg)
+app.post("/contatosubmit" , function(req,res){
 
-         //coloco esses dados em uma lista de objetos
-         let dadosUsuario=[
-                {nome:nome,
-                 email:email,
-                 senha:senha
-                }
-                
-        ];
-        ///cria tabela no banco de dados mysql
+       
+        
+        
+        //variaveis  recebem dados do formulario "_form"
+        let email=req.body.email_form;
+        let msg=req.body.msg_form;
+        
+        
+
+        //armazena no banco de dados "data_" as variaveis "Cad"
         Dados.create({
-               nome:nome,
-               email:email,
-               senha:senha         
-        }).then(()=>{
-
-
-                if (email == meuEmail && senha == minhaSenha && nome == meuNome ){
-                        adminMode=false };
+                data_email:email,
+                data_msg:msg
+                         
+         })
+         //lista todos os dados da tabela do banco de dados e armazena em dadosLista
+         Dados.findAll({raw:true}).then(dadosLista=>{
+                        
+                 res.render("home/index",{
+          
+                        dados:dadosLista,
+                        
+                                       });
         
-                if (adminMode==false){
-        
-                        res.render("admin/index",{
-        
-                                mode:adminMode,
-                                lista:dadosUsuario
-                                
-                        });
-                };
-
-
-
-
-
-                
         })
-       
-        
-       
+
 });
 
 
