@@ -1,9 +1,12 @@
-# Portifolio Dev fullstack
+<h1> Portifolio Dev fullstack</h1>
 
-#### server com express
-#### view engine Ejs
-#### bootstratp
-#### google fonts
-#### animation css
-#### mysql>>adcionando banco de dqados
 
+
+<ol>
+    <li>server com express</li>
+    <li>view engine Ejs</li>
+    <li>bootstratp</li>
+    <li>google fonts</li>
+    <lianimation css</li>
+    <li>mysql>>adcionando banco de dqados</li>
+</ol>
