@@ -95,16 +95,42 @@ res.render("contatosubmit/index",{
 });
 //rota admin
 app.get("/admin",function(req,res) {
-
        
         
-        
+
+
+     
         
 res.render("admin/index",{
 
+ ola:'Ola',
+       
+       
+});
+
+});
+
+//rota Projeto 1
+app.get("/projeto1",function(req,res) {
+               
+res.render("projeto1/index",{
       
-       
-       
+});
+
+});
+//rota Projeto 2
+app.get("/projeto2",function(req,res) {
+               
+res.render("projeto2/index",{
+      
+});
+
+});
+//rota Projeto 3
+app.get("/projeto3",function(req,res) {
+               
+res.render("projeto3/index",{
+      
 });
 
 });
@@ -118,6 +144,7 @@ app.post("/contatosubmit" , function(req,res){
         //variaveis  recebem dados do formulario "_form"
         let email=req.body.email_form;
         let msg=req.body.msg_form;
+     
         
         
 
@@ -132,6 +159,8 @@ app.post("/contatosubmit" , function(req,res){
                         
                  res.render("home/index",{
           
+                       
+                         
                         dados:dadosLista,
                         
                                        });

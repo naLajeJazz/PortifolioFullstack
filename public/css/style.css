@@ -4,8 +4,11 @@ body{
 }
 
 .bck{
-        background-color: black;
+        background-color: #010D26;
+       flex-grow:1;
+        
 }
+
 .borda{
         border-width: 2px;
         border-color: rgb(219, 52, 10);
