@@ -66,16 +66,91 @@ setTimeout(()=>{document.getElementById('textoIntro').className='fonte text-info
     document.getElementById('alertaMsg').addEventListener('click',()=>{alert('sua mensagem foi enviada para nosso banco de dados')})
 }else if (url_atual == '/projeto1'){
 
-    function drawCanvas(){
+    document.getElementById('myCanvas').className="bck mx-auto d-block my-3 poit"
 
+    function drawCanvas(){
+        const info= document.querySelector(".info");
+        const info2= document.querySelector(".info2");
+        const info3= document.querySelector(".info3");
         const canvas = document.getElementById("myCanvas");
         const ctx = canvas.getContext("2d");
-        ctx.fillStyle = "red";
-        ctx.fillRect(150, 150, 32, 32);
+        canvas.width=400;
+	    canvas.height=400;
+        canvas.style.backgroundColor='black';
+        let mouse = {};
         
+        function loop(){
+            requestAnimationFrame(loop,canvas);
+
+            canvas.addEventListener('mousemove',md)
+
+            function md(){
+
+           
+            ctx.clearRect(0,0,canvas.width,canvas.height);
+            ctx.save();
+            //let caixa=new Objeto(32,32,canvas.width/2,canvas.height/2,'red');
+            ctx.beginPath();
+            ctx.strokeStyle='red'
+            ctx.moveTo(mouse.x,mouse.y);
+            ctx.lineTo(0,0);
+            ctx.moveTo(mouse.x,mouse.y);
+            ctx.lineTo(0,400);
+            ctx.moveTo(mouse.x,mouse.y);
+            ctx.lineTo(400,0);
+            ctx.moveTo(mouse.x,mouse.y);
+            ctx.lineTo(400,400);
+            ctx.moveTo(mouse.x,mouse.y);
+            ctx.lineTo(0,200);
+            ctx.moveTo(mouse.x,mouse.y);
+            ctx.lineTo(200,400);
+            ctx.moveTo(mouse.x,mouse.y);
+            ctx.lineTo(400,200);
+            ctx.moveTo(mouse.x,mouse.y);
+            ctx.lineTo(200,0);
+            
+            ctx.stroke();
+            ctx.restore()
+        }
+            
+            
+            
+        }loop()
+
+
+
         
+
+        canvas.addEventListener('mousemove',function(e){
+            mouse.x = e.screenX - canvas.offsetLeft;
+            mouse.y = e.screenY - canvas.offsetTop;
+            mouse.move=true;
+           
+            info.innerHTML= `mouse.x ${mouse.x}`
+            info2.innerHTML= `mouse.y ${mouse.y}`
+            info3.innerHTML= `info`
+
+
+            
+        },false);
+      
+       
         
-    }drawCanvas()
+        function Objeto(w,h,x,y,cor){
+            this.w=w;
+            this.h=h;
+            this.x=x;
+            this.y=y;
+            
+            ctx.fillStyle = cor;
+            ctx.fillRect(this.x, this.y, this.w, this.h);
+
+        };
+
+        
+       
+    };
+    drawCanvas();
       
    
     

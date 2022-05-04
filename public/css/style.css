@@ -8,6 +8,9 @@ body{
        flex-grow:1;
         
 }
+.poit{
+        cursor: pointer;
+}
 
 .borda{
         border-width: 2px;
