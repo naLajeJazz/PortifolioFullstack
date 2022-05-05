@@ -4,9 +4,10 @@
 ///Manipulando elementos atraves da rota
 const url_atual = window.location.pathname
 //rota home
-if (url_atual == '/home'){
+if (url_atual == '/home' || url_atual == "/"){
 document.getElementById('menuHome').className='border-warning border-bottom   border-4 rounded nav-link text-warning fs-5 active'
 document.getElementById('header').className="bgImg fonte bg-white shadow-sm  container-fluid  static-top"
+document.getElementById('headerDiv').className="pt-3  animate__slow animate__animated animate__fadeInDown "
 
 /*
 //////anima o elemento h1 titulo do home quando mouseover
