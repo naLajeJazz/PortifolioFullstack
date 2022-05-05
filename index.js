@@ -103,7 +103,7 @@ app.get("/admin",function(req,res) {
         
 res.render("admin/index",{
 
- ola:'Ola',
+ ola:'Ola! Bem vindo(a) ao meu monitor de projetos',
        
        
 });

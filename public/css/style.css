@@ -39,6 +39,29 @@ a{
         
 }
 .dim {
-        width: 20em;
+        width: 26em;
         
+}
+.dim2 {
+
+        flex: 1;
+      /* Full height */
+  height: 100%;
+
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;  
+        
+}
+.bgImg {
+        background-image: url("/img/gvd.jpg");
+        height: 632px;
+
+}
+.bgImg2 {
+        background-image: url("/img/gvd.jpg");
+        
+
 }
