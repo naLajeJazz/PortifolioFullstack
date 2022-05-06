@@ -16,7 +16,7 @@ const Dados = connection.define('dados',{
 });
 
 Dados.sync({force:false}).then(()=>{
-                  console.log("tabela foi criada!")
+                  console.log("tabela criada no banco de dados")
 })
 
 module.exports= Dados;

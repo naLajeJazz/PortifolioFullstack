@@ -1,179 +1,179 @@
-const express = require('express');  
+const express = require('express');
 const app = express();
-const bodyParser= require('body-parser');
-const connection=require('./database/database');
-const Dados= require('./database/dados')
+const bodyParser = require('body-parser');
+const connection = require('./database/database');
+const Dados = require('./database/dados')
 
 
 // faz a conexão Database
 
 connection
         .authenticate()
-        .then(()=>{
+        .then(() => {
                 console.log("Conexão com o banco de dados ok!")
         })
-        .catch((err)=>{
+        .catch((err) => {
                 console.log(err)
         });
 
 
-app.set('view engine','ejs');
+app.set('view engine', 'ejs');
 app.use(express.static('./public'));
-app.use(bodyParser.urlencoded({extended:false}));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 //rota home
-app.get("/",function(req,res) {
+app.get("/", function (req, res) {
 
-        
-res.render("home/index",{
 
-        
-})  
+        res.render("home/index", {
+
+
+        })
 });
 
 
 //rota home
-app.get("/home",function(req,res) {
+app.get("/home", function (req, res) {
 
-       
-res.render("home/index",{
 
-       
-})  
+        res.render("home/index", {
+
+
+        })
 });
 
 
 //rota arte
-app.get("/arte",function(req,res) {
+app.get("/arte", function (req, res) {
 
-        
-res.render("arte/index",{
 
-})  
+        res.render("arte/index", {
+
+        })
 });
 
 //rota devportifolio
-app.get("/dev",function(req,res) {
+app.get("/dev", function (req, res) {
 
-        
-res.render("dev/index",{
 
-       
-})  
+        res.render("dev/index", {
+
+
+        })
 });
 
 
 //rota contato
-app.get("/contato",function(req,res) {
+app.get("/contato", function (req, res) {
 
-        
-res.render("contato/index",{
 
-       
-})  
+        res.render("contato/index", {
+
+
+        })
 });
 
 
 //rota sobre
-app.get("/sobre",function(req,res) {
+app.get("/sobre", function (req, res) {
 
-        
-res.render("sobre/index",{
 
-       
-})  
+        res.render("sobre/index", {
+
+
+        })
 });
 //rota contatosubmit
-app.get("/contatosubmit",function(req,res) {
+app.get("/contatosubmit", function (req, res) {
 
-        
-res.render("contatosubmit/index",{
 
-       
-})  
+        res.render("contatosubmit/index", {
+
+
+        })
 });
 //rota admin
-app.get("/admin",function(req,res) {
-       
-        
+app.get("/admin", function (req, res) {
 
 
-     
-        
-res.render("admin/index",{
 
- ola:'Ola! Bem vindo(a) ao meu monitor de projetos',
-       
-       
-});
+
+
+
+        res.render("admin/index", {
+
+                ola: 'Ola! Bem vindo(a) ao meu monitor de projetos',
+
+
+        });
 
 });
 
 //rota Projeto 1
-app.get("/projeto1",function(req,res) {
-               
-res.render("projeto1/index",{
-      
-});
+app.get("/projeto1", function (req, res) {
+
+        res.render("projeto1/index", {
+
+        });
 
 });
 //rota Projeto 2
-app.get("/projeto2",function(req,res) {
-               
-res.render("projeto2/index",{
-      
-});
+app.get("/projeto2", function (req, res) {
+
+        res.render("projeto2/index", {
+
+        });
 
 });
 //rota Projeto 3
-app.get("/projeto3",function(req,res) {
-               
-res.render("projeto3/index",{
-      
-});
+app.get("/projeto3", function (req, res) {
+
+        res.render("projeto3/index", {
+
+        });
 
 });
 
 //rota post (direciona dados do input email e msg)
-app.post("/contatosubmit" , function(req,res){
+app.post("/contatosubmit", function (req, res) {
 
-       
-        
-        
+
+
+
         //variaveis  recebem dados do formulario "_form"
-        let email=req.body.email_form;
-        let msg=req.body.msg_form;
-     
-        
-        
+        let email = req.body.email_form;
+        let msg = req.body.msg_form;
 
-        //armazena no banco de dados "data_" as variaveis "Cad"
+
+
+
+        //armazena no banco de dados "data_" as variaveis
         Dados.create({
-                data_email:email,
-                data_msg:msg
-                         
-         })
-         //lista todos os dados da tabela do banco de dados e armazena em dadosLista
-         Dados.findAll({raw:true}).then(dadosLista=>{
-                        
-                 res.render("home/index",{
-          
-                       
-                         
-                        dados:dadosLista,
-                        
-                                       });
-        
+                data_email: email,
+                data_msg: msg
+
+        })
+        //lista todos os dados da tabela do banco de dados e armazena em dadosLista
+        Dados.findAll({ raw: true }).then(dadosLista => {
+                //direciona para home       
+                res.render("home/index", {
+
+
+
+                        dados: dadosLista,
+
+                });
+
         })
 
 });
 
 
-app.listen(process.env.PORT || 1321,function(erro){
+app.listen(process.env.PORT || 1321, function (erro) {
 
-erro ? 
-console.log("opa aconteceu um erro!") :
-console.log("oba servidor rodando!");
+        erro ?
+                console.log("opa aconteceu um erro!") :
+                console.log("oba servidor rodando!");
 
 });
