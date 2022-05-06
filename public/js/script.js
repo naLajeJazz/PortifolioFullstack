@@ -62,7 +62,7 @@ document.getElementById('menuContato').className='border-warning border-bottom b
 // rota admin
 else if(url_atual == '/admin'){
 document.getElementById('menuAdmin').className='border-warning border-bottom border-4  rounded nav-link text-warning fs-5 active'
-setTimeout(()=>{document.getElementById('textoIntro').className='fonte text-info  animate__animated animate__bounceOutRight'},3000)
+
 
 }else if (url_atual == '/contatosubmit'){
     document.getElementById('alertaMsg').addEventListener('click',()=>{alert('sua mensagem foi enviada para nosso banco de dados')})
@@ -76,8 +76,8 @@ setTimeout(()=>{document.getElementById('textoIntro').className='fonte text-info
         const info3= document.querySelector(".info3");
         const canvas = document.getElementById("myCanvas");
         const ctx = canvas.getContext("2d");
-        canvas.width=400;
-	    canvas.height=400;
+        canvas.width=700;
+	    canvas.height=500;
         canvas.style.backgroundColor='black';
         let mouse = {};
         
@@ -91,27 +91,38 @@ setTimeout(()=>{document.getElementById('textoIntro').className='fonte text-info
            
             ctx.clearRect(0,0,canvas.width,canvas.height);
             ctx.save();
-           // let caixa=new Objeto(16,16,mouse.x,mouse.y,'red');
+            // var img = document.getElementById("ship");
+            //ctx.drawImage(img, 10, 10);
+            // let caixa=new Objeto(16,16,mouse.x-16,mouse.y-96,'red');
+
+            
+
             ctx.beginPath();
-            ctx.strokeStyle='red'
-            ctx.moveTo(mouse.x,mouse.y);
-            ctx.lineTo(0,0);
-            ctx.moveTo(mouse.x,mouse.y);
-            ctx.lineTo(0,400);
-            ctx.moveTo(mouse.x,mouse.y);
-            ctx.lineTo(400,0);
-            ctx.moveTo(mouse.x,mouse.y);
-            ctx.lineTo(400,400);
-            ctx.moveTo(mouse.x,mouse.y);
-            ctx.lineTo(0,200);
-            ctx.moveTo(mouse.x,mouse.y);
-            ctx.lineTo(200,400);
-            ctx.moveTo(mouse.x,mouse.y);
-            ctx.lineTo(400,200);
-            ctx.moveTo(mouse.x,mouse.y);
-            ctx.lineTo(200,0);
+            ctx.strokeStyle='gray'
+            ctx.moveTo(mouse.x-16,Math.abs(mouse.y-76)*1.1);
+            ctx.lineTo(0,100);
+            ctx.moveTo(mouse.x-16,Math.abs(mouse.y-76)*1.1  );
+            ctx.lineTo(0,canvas.height);
+            ctx.moveTo(mouse.x-16,Math.abs(mouse.y-76)*1.1);
+            ctx.lineTo(canvas.width,100);
+            ctx.moveTo(mouse.x-16,Math.abs(mouse.y-76)*1.1);
+            ctx.lineTo(canvas.width,canvas.height);
+            
+            //ctx.moveTo(0,mouse.y-64);
+            //ctx.lineTo(600,mouse.y-64);
+            //ctx.moveTo(mouse.x-16,mouse.y-96);
+            //ctx.lineTo(200,400);
+            //ctx.moveTo(mouse.x-16,mouse.y-96);
+            //ctx.lineTo(canvas.width,mouse.y+10);
+            //ctx.moveTo(mouse.x-16,mouse.y-96);
+            //ctx.lineTo(200,0);
             
             ctx.stroke();
+
+            var img = document.getElementById("ship");
+            ctx.drawImage(img,mouse.x-96,mouse.y-120, 164,164);
+
+
             ctx.restore()
         }
             
@@ -130,7 +141,7 @@ setTimeout(()=>{document.getElementById('textoIntro').className='fonte text-info
            
             info.innerHTML= `mouse.x ${mouse.x}`
             info2.innerHTML= `mouse.y ${mouse.y}`
-            info3.innerHTML= `info`
+            info3.innerHTML= `info ${Math.abs(mouse.y-76)*1.1} `
 
 
             
