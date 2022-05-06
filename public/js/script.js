@@ -1,57 +1,63 @@
-
-  
-
-///Manipulando elementos atraves da rota
+const info= document.querySelector(".info");
+const info2= document.querySelector(".info2");
+const info3= document.querySelector(".info3");
+const canvas = document.getElementById("myCanvas");
+const ctx = canvas.getContext("2d");
+canvas.width=700;
+canvas.height=500;
+canvas.style.backgroundColor='black';
+let mouse = {};
+  ///Manipulando elementos atraves da rota
 const url_atual = window.location.pathname
+
+
+
 //rota home
 if (url_atual == '/home' || url_atual == "/"){
-document.getElementById('menuHome').className='border-warning border-bottom   border-4 rounded nav-link text-warning fs-5 active'
-document.getElementById('header').className="bgImg fonte bg-white shadow-sm  container-fluid  static-top"
-document.getElementById('headerDiv').className="pt-3  animate__slow animate__animated animate__fadeInDown "
 
-/*
-//////anima o elemento h1 titulo do home quando mouseover
-
-document.getElementById("alerta").addEventListener("mouseover", mouseOver);
-document.getElementById("alerta").addEventListener("mouseout", mouseOut);
-
-function mouseOver() {
-document.getElementById("alerta").className='bg-warning  animate__animated animate__bounce p-3 my-5 mx-5 rounded  shadow-sm'
-
-
-};
-
-function mouseOut() { 
-document.getElementById("alerta").className=' p-3 my-5 mx-5 rounded  shadow-sm'
-
-
-};
-
-*/
-
-
-
+    document.getElementById('menuHome').className='border-warning border-bottom   border-4 rounded nav-link text-warning fs-5 active'
+    document.getElementById('header').className=" bgImg fonte bg-white shadow-sm  container-fluid  static-top"
+    document.getElementById('headerDiv').className="pt-3  animate__slow animate__animated animate__fadeInDown "
+    
 }
 // rota dev
 else if(url_atual == '/dev'){
-document.getElementById('menuDev').className=' border-warning border-bottom border-4  rounded nav-link text-warning fs-5 active'
+
+//indica borda inferior no botao "Dev"  
+document.
+getElementById('menuDev').
+className=' border-warning border-bottom border-4  rounded nav-link text-warning fs-5 active'
+
 }
 // rota arte
 else if(url_atual == '/arte'){
-document.getElementById('menuArte').className='border-warning border-bottom border-4  rounded nav-link text-warning fs-5 active'
+
+//indica borda inferior no botao "Arte"    
+document.
+getElementById('menuArte').
+className='border-warning border-bottom border-4  rounded nav-link text-warning fs-5 active'
+
 }
 // rota sobre
 else if(url_atual == '/sobre'){
-document.getElementById('menuSobre').className='border-warning border-bottom border-4  rounded nav-link text-warning fs-5 active'
+
+ //indica borda inferior no botao "Sobre"
+document.
+getElementById('menuSobre').
+className='border-warning border-bottom border-4  rounded nav-link text-warning fs-5 active'
+
 }
 //rota contato
 else if(url_atual == '/contato'){
-//
-document.getElementById('menuContato').className='border-warning border-bottom border-4  rounded nav-link text-warning fs-5 active'
+
+//indica borda inferior no botao "Contato"
+document.
+getElementById('menuContato').
+className='border-warning border-bottom border-4  rounded nav-link text-warning fs-5 active'
+
 //anima o botao
-    setTimeout(disparaBtnAtencao, 1000)
-   
-    function disparaBtnAtencao() {
+setTimeout(disparaBtnAtencao, 1000)
+function disparaBtnAtencao() {
                       
         document.getElementById("btnAtencao").className=
         "mt-4 shadow  btn btn-warning animate__animated animate__bounce  animate__repeat-3 animate__slower"
@@ -71,22 +77,14 @@ document.getElementById('menuAdmin').className='border-warning border-bottom bor
     document.getElementById('myCanvas').className="bck mx-auto d-block my-3 poit"
 
     function drawCanvas(){
-        const info= document.querySelector(".info");
-        const info2= document.querySelector(".info2");
-        const info3= document.querySelector(".info3");
-        const canvas = document.getElementById("myCanvas");
-        const ctx = canvas.getContext("2d");
-        canvas.width=700;
-	    canvas.height=500;
-        canvas.style.backgroundColor='black';
-        let mouse = {};
+        
         
         function loop(){
             requestAnimationFrame(loop,canvas);
 
-            canvas.addEventListener('mousemove',md)
+            canvas.addEventListener('mousemove',mMove)
 
-            function md(){
+            function mMove(){
 
            
             ctx.clearRect(0,0,canvas.width,canvas.height);
@@ -98,10 +96,10 @@ document.getElementById('menuAdmin').className='border-warning border-bottom bor
             
 
             ctx.beginPath();
-            ctx.strokeStyle='gray'
+            ctx.strokeStyle='gray';
             ctx.moveTo(mouse.x-16,Math.abs(mouse.y-76)*1.1);
             ctx.lineTo(0,100);
-            ctx.moveTo(mouse.x-16,Math.abs(mouse.y-76)*1.1  );
+            ctx.moveTo(mouse.x-16,Math.abs(mouse.y-76)*1.1);
             ctx.lineTo(0,canvas.height);
             ctx.moveTo(mouse.x-16,Math.abs(mouse.y-76)*1.1);
             ctx.lineTo(canvas.width,100);
