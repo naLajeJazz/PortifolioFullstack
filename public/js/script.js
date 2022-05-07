@@ -232,8 +232,15 @@ document.getElementById('menuAdmin').className='border-warning border-bottom bor
                          info2.innerHTML= `boxY ${boxY} boxY lim ${boxY+64}`
                                // y1-=spd/3
                                 //y2-=spd/3
-                                if (balX >= 608 && boxY<balY){balDir="esquerda"}
-                                if (balX <= 16){balDir="direita"}
+                                if (balX >= 608 && balY+16>=boxY && balY<boxY+64){
+
+                                    balDir="esquerda"
+                                    
+                                }
+                                if (balX <= 16){
+                                    
+                                    balDir="direita"
+                                }
 
 
                                 if (balDir =="direita"){
