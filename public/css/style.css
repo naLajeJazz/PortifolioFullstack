@@ -1,6 +1,6 @@
 
 body{
-        background-color: #F2F2F0;
+        background-color: #c9def3;
 }
 
 .bck{
@@ -26,7 +26,8 @@ font-family: 'Water Brush', cursive;*/
 }
 
 .menu_bar{
-        background-color: white;
+       
+        background-size: cover;
 }
 a{
         text-decoration: none;
@@ -57,12 +58,23 @@ a{
         
 }
 .bgImg {
-        background-image: url("/img/gvd.jpg");
+        flex: 1;
+        
+        background-image: url("/img/bck1.png");
+      
         height: 632px;
+
+        background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;  
 
 }
 .bgImg2 {
-        background-image: url("/img/gvd.jpg");
+        
+        background-image: url("/img/bck1.png");
+        background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; 
         
 
 }
