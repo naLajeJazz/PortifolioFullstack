@@ -169,8 +169,8 @@ document.getElementById('menuAdmin').className='border-warning border-bottom bor
              const info3= document.querySelector(".info3");
              const canvas = document.getElementById("myCanvas");
              const ctx = canvas.getContext("2d");
-             canvas.width=700;
-             canvas.height=500;
+             canvas.width=640;
+             canvas.height=320;
              canvas.style.backgroundColor='black';
              let mouse = {};
              
@@ -184,26 +184,94 @@ document.getElementById('menuAdmin').className='border-warning border-bottom bor
                 ctx.fillRect(this.x, this.y, this.w, this.h);
     
             };
+
+
+
+                      
                      
+                        
+                    
+                        let boxX=0;
+                        let boxY=160;
+                        let balX=320;
+                        let balY=160;
+                        let balDir="direita"
+                        let spd =8
+                     
+                        window.addEventListener("keyup",()=>{k='p'})
+                        window.addEventListener("keydown",function(event){
+                       
+                            let k= event.key
+                            
+                           
+                                
+                                if (k == "s" && boxY+64 < 320){
+                                    
+                                    boxY+=spd
+                                
+                                }else if(k =="w" && boxY > 0){
+                                   
+                                    boxY-=spd
+                                
+                                }
+                                
+                                
+
+
+                 
+                           
+                             
+                         },false);
+
+                         
+            
+            
                      function loop(){
                          requestAnimationFrame(loop,canvas);
-             
-                    
-             
+                         info3.innerHTML= `balDir ${balDir} balX ${balX} balY ${balY} `
+                         info2.innerHTML= `boxY ${boxY} boxY lim ${boxY+64}`
+                               // y1-=spd/3
+                                //y2-=spd/3
+                                if (balX >= 608 && boxY<balY){balDir="esquerda"}
+                                if (balX <= 16){balDir="direita"}
+
+
+                                if (balDir =="direita"){
+
+                                    balX+=spd/2
+                                    
+                                }else if (balDir == "esquerda"){
+
+                                    balX-=spd/2
+                                }
+                       
                         
                          ctx.clearRect(0,0,canvas.width,canvas.height);
                          ctx.save();
                          
              
-                      let sprite=new Objeto(64,64,0,0,'red')
-             
+                      let sprite=new Objeto(16,64,boxX,boxY,'white')
+                      let sprite2=new Objeto(16,64,624,boxY,'white')
+                      let sprite3=new Objeto(16,16,balX,balY,'red')
+
+                       /* ctx.beginPath();
+                        ctx.lineWidth = 1;
+                        ctx.strokeStyle='green'
+                        ctx.moveTo(x1, y1);
+                        ctx.lineTo(x2, y2);
+                        
+                     
+                        
+                        ctx.stroke();
+             */
 
 
 
                          ctx.restore()
                     
-                         
-                         
+                         //info.innerHTML= `ponto a x1= ${x1} y1= ${y1} `
+                        // info2.innerHTML= `ponto b x2= ${x2} y2= ${y2}`
+                        
                          
                      }loop()
              
@@ -211,18 +279,7 @@ document.getElementById('menuAdmin').className='border-warning border-bottom bor
              
                      
              
-                     canvas.addEventListener('mousemove',function(e){
-                         mouse.x = e.screenX - canvas.offsetLeft;
-                         mouse.y = e.screenY - canvas.offsetTop;
-                         mouse.move=true;
-                        
-                         info.innerHTML= `mouse.x ${mouse.x}`
-                         info2.innerHTML= `mouse.y ${mouse.y}`
-                         info3.innerHTML= `info ${Math.abs(mouse.y-76)*1.1} `
-             
-             
-                         
-                     },false);
+                    
                    
                     
                      
