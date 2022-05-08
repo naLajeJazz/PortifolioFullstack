@@ -7,8 +7,8 @@ const url_atual = window.location.pathname
 if (url_atual == '/home' || url_atual == "/"){
 
     document.getElementById('menuHome').className="border-warning border-bottom   border-4 rounded nav-link text-warning fs-5 active"
-    document.getElementById('header').className="bgImg  fonte bg-white   container-fluid  static-top"
-    document.getElementById('headerDiv').className="pt-3  bck  animate__slow animate__animated animate__fadeInDown "
+    document.getElementById('header').className="bgImg  fonte    container-fluid  static-top"
+    document.getElementById('headerDiv').className="pt-3   animate__slow animate__animated animate__fadeInDown "
     
 }
 // rota dev
@@ -259,7 +259,7 @@ document.getElementById('menuAdmin').className='border-warning border-bottom bor
              
                       let sprite=new Objeto(16,64,boxX,boxY,'white')
                       let sprite2=new Objeto(16,64,624,boxY,'white')
-                      let sprite3=new Objeto(16,16,balX,balY,'red')
+                      let sprite3=new Objeto(16,16,balX,balY,'white')
 
                        /* ctx.beginPath();
                         ctx.lineWidth = 1;
@@ -296,4 +296,123 @@ document.getElementById('menuAdmin').className='border-warning border-bottom bor
                     
                  }Game()
      
+    }else if (url_atual == "/projeto3"){
+        document.getElementById('myCanvas').className="bck mx-auto d-block my-3 poit"
+
+        function Game(){
+     
+             const info= document.querySelector(".info");
+             const info2= document.querySelector(".info2");
+             const info3= document.querySelector(".info3");
+             const canvas = document.getElementById("myCanvas");
+             const ctx = canvas.getContext("2d");
+             let canvasW=640;
+             let canvasH=512;
+             canvas.width=canvasW;
+             canvas.height=canvasH;
+             canvas.style.backgroundColor='black';
+           
+             
+             function Objeto(w,h,x,y,cor){
+                this.w=w;
+                this.h=h;
+                this.x=x;
+                this.y=y;
+                
+                ctx.fillStyle = cor;
+                ctx.fillRect(this.x, this.y, this.w, this.h);
+    
+            };
+
+            
+            
+            
+            
+            
+            
+            let boxX=canvasW/2;
+            let boxY=canvasH-64;
+            let img = document.getElementById("shipSprite");
+            let xIndex = 0;
+            let spd =8;
+                     
+                        window.addEventListener("keyup",()=>{k='p'},false);
+                        window.addEventListener("keydown",function(event){
+                       
+                            let k= event.key
+                            
+                           
+                                
+                                if (k == "d" && boxX+64 < canvasW){
+                                    
+                                    boxX+=spd
+                                    
+                                
+                                }else if(k =="a" && boxX > 0){
+                                   
+                                    boxX-=spd
+                                
+                                }
+                                
+                                
+
+                                
+                 
+                           
+                             
+                         },false);
+
+
+
+
+                        
+
+                         ///anima imagem
+                         setInterval(()=>xIndex=32,250)
+                         setInterval(()=>xIndex=0,500)
+                         
+
+
+
+                     function loop(){
+                         requestAnimationFrame(loop,canvas);
+                        
+                         
+                         
+                         ctx.clearRect(0,0,canvas.width,canvas.height);
+                         ctx.save();
+                         
+             
+                      
+                     // let sprite3=new Objeto(16,16,balX,balY,'white')
+
+                        //Animando sprite
+                        
+
+                      ctx.drawImage(img,xIndex,0,32,32,boxX,boxY,32,32);
+                      //ctx.drawImage(img,33,0,32,32,boxX,boxY+32,32,32);
+                      
+
+                       
+                         ctx.restore()
+                    
+                         //info.innerHTML= `ponto a x1= ${x1} y1= ${y1} `
+                        // info2.innerHTML= `ponto b x2= ${x2} y2= ${y2}`
+                        
+                         
+                     }loop()
+             
+             
+             
+                     
+             
+                    
+                   
+                    
+                     
+                  
+             
+                     
+                    
+                 }Game();
     }
