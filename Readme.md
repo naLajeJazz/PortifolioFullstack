@@ -11,8 +11,9 @@
     <li>Experimentos com Canvas</li>
 </ol>
 
-<h1>Sessão de projetos experimentais</h1>
+<h1>Explorando o canvas para criar jogos</h1>
 <ol>
-    <li>explorando o canvas para criar jogos</li>
+    <li>Ping-Pong</li>
+    <li>Space-Invaders<li>
     
 </ol>
