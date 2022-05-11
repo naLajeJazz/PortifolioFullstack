@@ -72,90 +72,95 @@ document.getElementById('menuAdmin').className='border-warning border-bottom bor
         canvas.style.backgroundColor='black';
         let mouse = {};
         
-                
-                
-                function loop(){
+  
+        function Objeto(w,h,x,y,cor){
+            this.w=w;
+            this.h=h;
+            this.x=x;
+            this.y=y;
+            this.centerX= function(){
+                return this.x + this.w/2;
+                },
+            this.centerY= function(){
+                return this.y + this.h/2;
+                }
+            
+            ctx.fillStyle = cor;
+            ctx.fillRect(this.x, this.y, this.w, this.h);
+
+        };
+               
+        
+        
+        canvas.addEventListener('mousemove',function(e){
+            mouse.x = e.offsetX; 
+            mouse.y = e.offsetY; 
+            mouse.move=true;
+           
+            info.innerHTML= `mouse.x ${mouse.x}`
+            info2.innerHTML= `mouse.y ${mouse.y}`
+            info3.innerHTML= `info ${Math.abs(mouse.y-76)*1.1} `
+
+
+            
+        },false);
+        
+        
+        
+        
+        
+        
+        
+        function loop(){
                     requestAnimationFrame(loop,canvas);
+
+
+                   
         
-                    canvas.addEventListener('mousemove',mMove)
+                    
+                    
+                   
+
+                   
         
-                    function mMove(){
+                    
         
                    
                     ctx.clearRect(0,0,canvas.width,canvas.height);
                     ctx.save();
-                    // var img = document.getElementById("ship");
-                    //ctx.drawImage(img, 10, 10);
-                    // let caixa=new Objeto(16,16,mouse.x-16,mouse.y-96,'red');
+                    
+       
+                       
+                    let caixa=new Objeto(16,16,mouse.x,mouse.y,'red');
         
                     
         
                     ctx.beginPath();
-                    ctx.strokeStyle='gray';
-                    ctx.moveTo(mouse.x-16,Math.abs(mouse.y-76)*1.1);
-                    ctx.lineTo(0,100);
-                    ctx.moveTo(mouse.x-16,Math.abs(mouse.y-76)*1.1);
-                    ctx.lineTo(0,canvas.height);
-                    ctx.moveTo(mouse.x-16,Math.abs(mouse.y-76)*1.1);
-                    ctx.lineTo(canvas.width,100);
-                    ctx.moveTo(mouse.x-16,Math.abs(mouse.y-76)*1.1);
-                    ctx.lineTo(canvas.width,canvas.height);
-                    
-                    //ctx.moveTo(0,mouse.y-64);
-                    //ctx.lineTo(600,mouse.y-64);
-                    //ctx.moveTo(mouse.x-16,mouse.y-96);
-                    //ctx.lineTo(200,400);
-                    //ctx.moveTo(mouse.x-16,mouse.y-96);
-                    //ctx.lineTo(canvas.width,mouse.y+10);
-                    //ctx.moveTo(mouse.x-16,mouse.y-96);
-                    //ctx.lineTo(200,0);
-                    
+                  
                     ctx.stroke();
         
-                   // var img = document.getElementById("ship");
-                    //ctx.drawImage(img,mouse.x-96,mouse.y-120, 164,164);
+                   
         
         
                     ctx.restore()
-                }
-                    
-                    
+              
+               
                     
                 }loop()
         
         
-        
+               
                 
         
-                canvas.addEventListener('mousemove',function(e){
-                    mouse.x = e.screenX - canvas.offsetLeft;
-                    mouse.y = e.screenY - canvas.offsetTop;
-                    mouse.move=true;
-                   
-                    info.innerHTML= `mouse.x ${mouse.x}`
-                    info2.innerHTML= `mouse.y ${mouse.y}`
-                    info3.innerHTML= `info ${Math.abs(mouse.y-76)*1.1} `
-        
-        
-                    
-                },false);
+                
               
                
                 
-                function Objeto(w,h,x,y,cor){
-                    this.w=w;
-                    this.h=h;
-                    this.x=x;
-                    this.y=y;
-                    
-                    ctx.fillStyle = cor;
-                    ctx.fillRect(this.x, this.y, this.w, this.h);
-        
-                };
+              
         
                 
                
-            }Game()
+            }Game();
 
 
     }else if(url_atual == "/projeto2"){
