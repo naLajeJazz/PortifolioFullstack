@@ -112,8 +112,8 @@ document.getElementById('menuAdmin').className='border-warning border-bottom bor
                     
                     ctx.stroke();
         
-                    var img = document.getElementById("ship");
-                    ctx.drawImage(img,mouse.x-96,mouse.y-120, 164,164);
+                   // var img = document.getElementById("ship");
+                    //ctx.drawImage(img,mouse.x-96,mouse.y-120, 164,164);
         
         
                     ctx.restore()
