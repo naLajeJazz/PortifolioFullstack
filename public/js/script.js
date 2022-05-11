@@ -260,6 +260,7 @@ document.getElementById('menuAdmin').className='border-warning border-bottom bor
                       let sprite=new Objeto(16,64,boxX,boxY,'white')
                       let sprite2=new Objeto(16,64,624,boxY,'white')
                       let sprite3=new Objeto(16,16,balX,balY,'white')
+                      
 
                        /* ctx.beginPath();
                         ctx.lineWidth = 1;
@@ -312,6 +313,8 @@ document.getElementById('menuAdmin').className='border-warning border-bottom bor
              canvas.height=canvasH;
              canvas.style.backgroundColor='black';
            
+
+             
              
              function Objeto(w,h,x,y,cor){
                 this.w=w;
@@ -321,6 +324,13 @@ document.getElementById('menuAdmin').className='border-warning border-bottom bor
                 
                 ctx.fillStyle = cor;
                 ctx.fillRect(this.x, this.y, this.w, this.h);
+                this.retangulo=()=>{
+                    
+                    
+                    ctx.fillStyle=cor;
+                    ctx.fillRect(x,y,w,h);
+                    
+                };  
     
             };
 
@@ -335,6 +345,14 @@ document.getElementById('menuAdmin').className='border-warning border-bottom bor
             let img = document.getElementById("shipSprite");
             let xIndex = 0;
             let spd =8;
+            let rand =64
+            
+            
+            
+                                
+          
+            
+         
                      
                         window.addEventListener("keyup",()=>{k='p'},false);
                         window.addEventListener("keydown",function(event){
@@ -343,7 +361,7 @@ document.getElementById('menuAdmin').className='border-warning border-bottom bor
                             
                            
                                 
-                                if (k == "d" && boxX+64 < canvasW){
+                                if (k == "d" && boxX+32 < canvasW){
                                     
                                     boxX+=spd
                                     
@@ -356,41 +374,64 @@ document.getElementById('menuAdmin').className='border-warning border-bottom bor
                                 
                                 
 
-                                
+                               
                  
                            
                              
                          },false);
 
-
-
-
                         
+                         
+                         
 
                          ///anima imagem
-                         setInterval(()=>xIndex=32,250)
-                         setInterval(()=>xIndex=0,500)
+                         setInterval(()=>xIndex=32,125)
+                         setInterval(()=>xIndex=0,250)
                          
-
-
-
-                     function loop(){
-                         requestAnimationFrame(loop,canvas);
                         
-                         
-                         
-                         ctx.clearRect(0,0,canvas.width,canvas.height);
-                         ctx.save();
-                         
-             
                       
+                        
+                        function loop(){
+                            requestAnimationFrame(loop,canvas);
+                            
+                             
+        
+           
+                            
+                            ctx.clearRect(0,0,canvas.width,canvas.height);
+                            ctx.save();
+                            
+                            
+                           
+                          
                      // let sprite3=new Objeto(16,16,balX,balY,'white')
 
                         //Animando sprite
                         
+                        let invader=new Objeto(32,32,rand,20,"red")
+                        
+
+                        invader.retangulo()
+                        
+                       
+                        let invader2=new Objeto(32,32,rand+64,20,"blue")
+
+                        invader2.retangulo()
+
+                        let invader3=new Objeto(32,32,rand+128,20,"red")
+                        
+
+                        invader3.retangulo()
+                        
+                       
+                        let invader4=new Objeto(32,32,rand+192,20,"blue")
+
+                        invader4.retangulo()
+                 
 
                       ctx.drawImage(img,xIndex,0,32,32,boxX,boxY,32,32);
-                      //ctx.drawImage(img,33,0,32,32,boxX,boxY+32,32,32);
+                    //posião relativa do segundo frame da imagem 
+                    /*ctx.drawImage(img,33,0,32,32,boxX,boxY+32,32,32);*/
                       
 
                        
@@ -399,6 +440,13 @@ document.getElementById('menuAdmin').className='border-warning border-bottom bor
                          //info.innerHTML= `ponto a x1= ${x1} y1= ${y1} `
                         // info2.innerHTML= `ponto b x2= ${x2} y2= ${y2}`
                         
+                        
+                            
+
+                                   
+
+
+
                          
                      }loop()
              
